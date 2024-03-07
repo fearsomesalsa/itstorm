@@ -1,0 +1,70 @@
+<section class="blog">
+    <div class="container">
+        <h2 class="blog-title">Блог</h2>
+        <div class="blog-filters">
+            <div class="blog-applied-filters">
+                <div *ngFor="let category of categories">
+                    <div class="blog-applied-filter" *ngIf="category.appliedToFilter">
+                        <span>{{category.name}}</span>
+                        <button (click)="removeFromFilter(category.url)">
+                            <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <line x1="0.935531" y1="1.15002" x2="12.9563" y2="13.1708" stroke="#709FDC"
+                                    stroke-linecap="round" />
+                                <line x1="12.9236" y1="1.12984" x2="0.902784" y2="13.1507" stroke="#709FDC"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-filters-select" [class.open]="openFilter">
+                <button class="blog-filters-select-head" (click)="toggleFilter()">
+                    <span class="blog-filters-select-head-title">Фильтр</span>
+                    <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="blog-filters-select-head-svg">
+                        <path
+                            d="M10 14.5C9.41668 14.5 8.83335 14.275 8.39168 13.8334L2.95835 8.40003C2.71668 8.15837 2.71668 7.75837 2.95835 7.5167C3.20002 7.27503 3.60002 7.27503 3.84168 7.5167L9.27502 12.95C9.67502 13.35 10.325 13.35 10.725 12.95L16.1583 7.5167C16.4 7.27503 16.8 7.27503 17.0417 7.5167C17.2833 7.75837 17.2833 8.15837 17.0417 8.40003L11.6083 13.8334C11.1667 14.275 10.5833 14.5 10 14.5Z"
+                            fill="#071739" />
+                    </svg>
+                </button>
+                <div class="blog-filters-select-body" *ngIf="openFilter">
+                    <button class="blog-filters-select-category" *ngFor="let category of categories"
+                        [class.applied]="category.appliedToFilter"
+                        (click)="filter(category.url, !category.appliedToFilter)">
+                        <span class="blog-filters-select-category-name">{{category.name}}</span>
+                        <span class="blog-filters-select-category-add-filter" *ngIf="!category.appliedToFilter">+</span>
+                        <span class="blog-filters-select-category-remove-filter"
+                            *ngIf="category.appliedToFilter">-</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="blog-articles">
+            <app-article-card *ngFor="let article of (articles$ | async)?.items" [article]="article"></app-article-card>
+        </div>
+        <div class="blog-pagination">
+            <button class="blog-pagination-arrow" (click)="openPrevPage()" [disabled]="activeParams.page === 1">
+                <img src="/assets/images/prev-arrow-light-blue.png" alt="prev arrow" *ngIf="activeParams.page !== 1">
+                <img src="/assets/images/prev-arrow-gray.png" alt="prev arrow" *ngIf="activeParams.page === 1">
+            </button>
+            <div class="blog-pagination-pages">
+                <span class="pagination-page pagination-page-prev ellipsis" *ngIf="pages[0] > 1">. . .</span>
+                <button class="pagination-page" *ngFor="let page of pages"
+                    [class.active]="activeParams.page ? page === activeParams.page : page === 1"
+                    (click)="openPage(page)">
+                    {{page}}
+                </button>
+                <span class="pagination-page pagination-page-next ellipsis"
+                    *ngIf="pages[pages.length - 1] < pagesAmount">. . .</span>
+            </div>
+            <button class="blog-pagination-arrow" (click)="openNextPage()"
+                [disabled]="activeParams.page === pagesAmount">
+                <img src="/assets/images/next-arrow-light-blue.png" alt="next arrow"
+                    *ngIf="activeParams.page !== pagesAmount">
+                <img src="/assets/images/next-arrow-gray.png" alt="next arrow"
+                    *ngIf="activeParams.page === pagesAmount">
+            </button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+<div class="modal-wrapper">
+  <div class="modal">
+    <div class="modal-close">
+      <button class="modal-close-button" (click)="closeRequestModal()">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0.935622" y1="0.649994" x2="12.9564" y2="12.6708" stroke="#BEBEBE" stroke-linecap="round" />
+          <line x1="12.9236" y1="0.629775" x2="0.902769" y2="12.6506" stroke="#BEBEBE" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+    <div class="modal-content modal-content-request" *ngIf="!requestSuccess">
+      <h2 class="modal-title title-order" *ngIf="requestType === requestTypeType.order">Заявка на услугу</h2>
+      <h2 class="modal-title title-consultation" *ngIf="requestType === requestTypeType.consultation">Закажите
+        бесплатную консультацию!</h2>
+      <form class="form" [formGroup]="modalForm">
+        <div class="form-fields">
+          <mat-form-field class="form-field modal-form-service-select" appearance="outline"
+            *ngIf="requestType === requestTypeType.order">
+            <mat-select [(value)]="selectedService" formControlName="service">
+              <mat-option value="{{service}}" *ngFor="let service of services">{{service}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <input matInput type="text" placeholder="Ваше имя" formControlName="name">
+            <mat-error *ngIf="modalForm.get('name')?.errors?.['required']">Введите имя</mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field">
+            <input matInput type="text" placeholder="Ваш номер телефона" formControlName="phone" [maskito]="options">
+            <mat-error *ngIf="modalForm.get('phone')?.errors?.['required']">Введите телефон</mat-error>
+            <mat-error *ngIf="modalForm.get('phone')?.errors?.['pattern']">Формат телефона +7 (999)
+              999-99-99</mat-error>
+          </mat-form-field>
+          <div class="form-submit">
+            <button type="button" class="button" *ngIf="requestType === requestTypeType.order" (click)="createRequest()"
+              [disabled]="modalForm.invalid">Оставить заявку</button>
+            <button type="button" class="button" *ngIf="requestType === requestTypeType.consultation"
+              (click)="createRequest()" [disabled]="modalForm.invalid">Заказать консультацию</button>
+            <mat-error class="error" *ngIf="requestIsSended && !requestSuccess">
+              Произошла ошибка при отправке формы, попробуйте еще раз.
+            </mat-error>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-content modal-content-thankyou" *ngIf="requestIsSended && requestSuccess">
+      <h2 class="modal-title">Спасибо за вашу заявку!</h2>
+      <div class="modal-text">Мы свяжемся с вами при первой же возможности.</div>
+      <button class="button small-button" (click)="closeRequestModal()">Окей</button>
+    </div>
+  </div>
+</div>

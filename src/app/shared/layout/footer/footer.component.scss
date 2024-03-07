@@ -1,0 +1,104 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.footer {
+  background-color: $light-blue-background-color;
+  font-size: 16px;
+  padding: 40px 0 54px;
+
+  .container {
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+
+      .footer-logo {
+        margin-right: 40px;
+
+        .logo-img {
+          vertical-align: bottom;
+        }
+      }
+
+      .menu .menu-items {
+        @include menu-flex-list-none-p0-m0;
+
+        &.footer-menu-items {
+          font-weight: 400;
+
+          .footer-menu-item {
+            margin-right: 20px;
+
+            .footer-menu-item-link {
+              color: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    .footer-contacts {
+      display: flex;
+      margin-bottom: 6px;
+      max-width: 916px;
+
+      .footer-contact {
+        margin-right: 60px;
+        flex-shrink: 0;
+
+        &.footer-address {
+          max-width: 253px;
+        }
+
+        &.footer-email {
+          .footer-contact-info {
+            font-size: 14px;
+          }
+        }
+
+        &.footer-social {
+          .footer-contact-title {
+            margin-bottom: 15px;
+          }
+
+          .footer-contact-info .footer-social-network {
+            margin-right: 12px;
+          }
+        }
+
+        &.footer-contact:last-child {
+          margin-right: 0;
+        }
+
+        .footer-contact-title {
+          color: $light-blue-text-color;
+          font-weight: 500;
+          margin-bottom: 10px;
+        }
+
+        .footer-contact-info {
+          .footer-contact-info-phone {
+            margin-bottom: 10px;
+
+            .footer-contact-info-phone-link {
+              color: $dark-blue-text-color;
+            }
+          }
+
+          .footer-contact-info-email-link {
+            color: $dark-blue-text-color;
+          }
+
+          .footer-action .footer-action-button {
+            width: 153px;
+            padding: 10px;
+          }
+        }
+      }
+    }
+
+    .footer-rights {
+      color: $light-blue-text-color;
+    }
+  }
+}

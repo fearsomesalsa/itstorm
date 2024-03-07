@@ -1,0 +1,11 @@
+<div class="article-card">
+    <div class="acticle-card-category">{{article.category}}</div>
+    <div class="article-card-info">
+        <div class="article-card-image" style="background-image: url('{{serverStaticPath + article.image}}');"></div>
+        <h5 class="article-card-title">{{article.title}}</h5>
+        <div class="article-card-text">{{article.description}}</div>
+    </div>
+    <div class="article-card-action">
+        <a [routerLink]="['/article', article.url]" class="article-card-link">Читать дальше</a>
+    </div>
+</div>

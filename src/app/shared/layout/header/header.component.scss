@@ -1,0 +1,106 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.header {
+  padding: 40px 0;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  
+  &.scrolled {
+    box-shadow: 0 5px 15px 0px rgb(0, 0, 0, 0.2);
+  }
+
+  .container.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+
+      .header-logo {
+        margin-right: 100px;
+  
+        .logo-img {
+          vertical-align: bottom;
+        }
+      }
+  
+      .menu .menu-items {
+        @include menu-flex-list-none-p0-m0;
+  
+        &.header-menu-items {
+          margin-right: 227px; /* 257 - 30 */
+  
+          .header-menu-item {
+            margin-right: 30px;
+
+            .header-menu-item-link {
+              color: inherit;
+
+              &.active {
+                color: $light-blue-text-color;
+              }
+            }
+          }
+        }
+      }
+  
+      .header-phone .header-phone-link {
+          color: $light-blue-text-color;
+      }
+    }
+
+    .header-account {
+      .header-account-link {
+        display: flex;
+        align-items: center;
+        color: inherit;
+  
+        span {
+          margin-left: 7px;
+        }
+      }
+
+      ::ng-deep .mdc-button.custom {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: unset;
+        padding: 0;
+      }
+      
+      ::ng-deep .mat-mdc-button.custom {
+        background-color: #fff;
+        opacity: 1;
+      
+        &:not(:disabled) {
+          color: $dark-blue-text-color;
+        }
+      
+        &:hover {
+          background-color: #fff;
+          opacity: 1;
+        }
+      
+        .mdc-button__label {
+          display: flex;
+          align-items: center;
+      
+          span {
+            margin-left: 7px;
+          }
+        }
+      }
+    }
+  }
+}
+

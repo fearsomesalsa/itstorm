@@ -1,0 +1,17 @@
+@import "../../../../assets/styles/form";
+
+.login {
+    padding: 106px 0 92px;
+
+    .container {
+        display: flex;
+
+        .form {
+            padding-top: 14px;
+        }
+
+        .login-image {
+            margin-left: 178px;
+        }
+    }
+}

@@ -1,0 +1,344 @@
+@import "../../../assets/styles/variables";
+@import "../../../assets/styles/mixins";
+
+.main {
+    padding-bottom: 60px;
+  
+    .container {
+
+      .main-carousel {
+        position: relative;
+        
+
+        .main-carousel-arrows {
+          position: absolute;
+          top: calc(50% - 28px / 2);
+          left: 0;
+          z-index: 2;
+          width: 100%;
+          padding: 0 10px;
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .main-carousel-slides {
+          .main-carousel-slide {
+            height: 500px;
+            background-position: center right;
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 80px 85px;
+    
+            &::before {
+              content: "";
+              width: 1405px;
+              height: 1404px;
+              border-radius: 50%;
+              background-color: $light-blue-background-color;
+              position: absolute;
+              top: -702px;
+              left: -702px;
+            }
+    
+            .main-carousel-slide-content {
+              position: relative;
+              z-index: 1;
+              color: #FFF;
+    
+              .main-carousel-slide-type {
+                color: $light-blue-text-color;
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 4.8px;
+                text-transform: uppercase;
+              }
+    
+              .main-carousel-slide-title {
+                max-width: 610px;
+                font-family: 'Lora', serif;
+                font-size: 50px;
+                font-weight: 400;
+                line-height: 130%;
+              }
+
+              .main-carousel-slide-info {
+                margin-top: 20px;
+                max-width: 456px;
+                color: #FFF;
+                font-size: 24px;
+                line-height: 130%; /* 31.2px */
+                margin-bottom: 10px;
+              }
+    
+              .main-carousel-slide-action {
+                .button {
+                  width: 163px;
+                  height: 51px;
+                  padding: 15px;
+                  margin-top: 40px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
+.services {
+    padding: 60px 0;
+
+    .container {
+      .services-title {
+        margin-bottom: 40px;
+      }
+
+      .services-items {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 26px;
+
+        .services-item {
+          .services-item-title {
+            margin-top: 15px;
+            margin-bottom: 10px;
+          }
+
+          .services-item-info {
+            height: 90px;
+            margin-bottom: 15px;
+          }
+
+          .services-item-extra {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .services-item-price {
+              color: $light-blue-text-color;
+              font-size: 20px;
+              font-weight: 600;
+            }
+
+            .services-item-action {
+              button {
+                width: 163px;
+                padding: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
+.about-us {
+  padding: 60px 0;
+
+  .container {
+    display: flex;
+
+    .about-us-info {
+      margin-left: 68px;
+
+      .about-us-title {
+        margin-bottom: 20px;
+      }
+
+      .about-us-description {
+        max-width: 633px;
+        margin-bottom: 40px;
+        color: #1E1A2B;
+        line-height: 130%;
+
+        .bold {
+          font-weight: 500;
+        }
+      }
+
+      .about-us-advantages {
+        .about-us-advantages-title {
+          color: #709FDC;
+          font-family: 'Lora', serif;
+          font-size: 26px;
+          margin-bottom: 20px;
+        }
+
+        .about-us-advantages-items {
+          display: grid;
+          grid-template-columns: repeat(2, 316px);
+          gap: 20px 71px;
+
+          .about-us-advantages-item {
+            display: flex;
+            align-items: center;
+            
+
+            .about-us-advantages-item-number {
+              color: $light-blue-text-color;
+              font-family: 'Lora', serif;
+              font-size: 50px;
+              font-weight: 500;
+              margin-right: 20px;
+              width: 40px;
+              flex-shrink: 0;
+              text-align: center;
+              line-height: 130%;
+              position: relative;
+
+              &::before {
+                content: "";
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: $light-blue-background-color;
+                position: absolute;
+                z-index: -1;
+                left: 0;
+                bottom: 5px;
+              }
+            }
+
+            .about-us-advantages-item-text {
+              color: #1E1A2B;
+              line-height: 130%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.articles {
+  padding: 60px 0;
+
+  .container {
+    .articles-title {
+      margin-bottom: 40px;
+    }
+
+    .articles-items {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .articles-action {
+      display: flex;
+      justify-content: flex-end;
+
+      .articles-link {
+        display: flex;
+        align-items: center;
+        color: $light-blue-text-color;
+        font-size: 20px;
+        font-weight: 500;
+
+        span {
+          margin-right: 14px;
+        }
+      }
+    }
+  }
+}
+
+.reviews {
+  padding: 60px 0;
+
+  .container {
+    
+    .reviews-title {
+      margin-bottom: 20px;
+    }
+
+    .reviews-carousel {
+      position: relative;
+
+      .reviews-carousel-arrows {
+        position: absolute;
+        top: calc(50% - 5px);
+        left: -25px;
+        width: calc(100% + 2 * (15px + 10px));
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .reviews-carousel-slides {
+        .reviews-carousel-slide {
+          border-radius: 5px;
+          border: 2px solid $light-blue-text-color;
+          width: 396px;
+          height: 267px;
+          padding: 30px;
+
+          .reviews-carousel-slide-person {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+
+            .reviews-carousel-slide-person-photo {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat; 
+              margin-right: 26px;
+            }
+
+            .reviews-carousel-slide-person-name {
+              color: $light-blue-text-color;
+              font-size: 18px;
+              font-weight: 600;
+            }
+          }
+
+          .reviews-carousel-slide-text {
+            font-size: 16px;
+            line-height: 140%; /* 22.4px */
+          }
+        }
+      }
+    }
+  }
+}
+
+.contacts {
+  padding: 60px 0 120px;
+
+  .container {
+    display: flex;
+
+    .contacts-map {
+      width: 607px;
+      margin-right: 26px;
+    }
+
+    .contacts-info {
+
+      .contacts-info-item {
+        margin-top: 20px;
+
+        .contacts-info-item-title {
+          margin-bottom: 10px;
+        }
+
+        .contacts-info-item-text {
+          max-width: 501px;
+
+          a {
+            color: $dark-blue-text-color;
+          }
+
+          a.contacts-info-item-text-social {
+            margin-right: 20px;
+          }
+        }
+      }
+    }
+  }
+}

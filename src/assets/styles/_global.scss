@@ -1,0 +1,101 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $dark-blue-text-color;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+a img, a svg, button img, button svg {
+  vertical-align: middle;
+}
+
+h2 {
+  @include subtitle-lora-38-lightblue;
+}
+
+h5 {
+  color: $light-blue-text-color;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+
+  &.button {
+    border-radius: 5px;
+    background-color: $light-blue-text-color;
+    color: #fff;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  &.small-button {
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  &.button:disabled, &.small-button:disabled {
+    background-color: #b9b9b9;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: 0.5;
+  }
+}
+
+.owl-theme .owl-nav.disabled+.owl-dots {
+  margin-top: 0;
+  position: absolute;
+  left: calc(50% - 90px / 2);
+  bottom: 20px;
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.owl-theme .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #FFF;
+  margin: 0;
+  background: transparent;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  background: #FFF;
+}

@@ -1,0 +1,81 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/form";
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.4);
+  
+  .modal {
+    width: 727px;
+    height: 489px;
+    border-radius: 10px;
+    border: 2px solid $light-blue-text-color;
+    background: #FFF;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: modalAppearance .4s ease-out;
+  
+    .modal-close {
+      position: absolute;
+      top: 32px;
+      right: 32px;
+    }
+  
+    .modal-content {
+      text-align: center;
+
+      &.modal-content-request {
+        width: 422px;
+      }
+  
+      .modal-title {
+        margin-bottom: 20px;
+
+        &.title-order {
+          margin-top: 6px;
+        }
+      }
+    
+      .form {
+        .form-submit {
+          margin-top: 15px;
+          margin-bottom: 0;
+        }
+      }
+  
+      .modal-text {
+        color: #1E1A2B;
+        font-weight: 500;
+        margin-bottom: 40px;
+      }
+
+      .small-button {
+        padding: 10px;
+        width: 73px;
+        height: 36px;
+      }
+    }
+  }
+}
+
+@keyframes modalAppearance {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

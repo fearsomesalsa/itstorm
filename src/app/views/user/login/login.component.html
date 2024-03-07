@@ -1,0 +1,39 @@
+<section class="login">
+    <div class="container">
+        <form class="form" [formGroup]="loginForm">
+            <h3 class="form-title">Войти в личный кабинет</h3>
+            <div class="form-fields">
+                <mat-form-field class="form-field field-email">
+                    <input matInput type="email" id="email" formControlName="email" placeholder="Электронная почта">
+                    <mat-error class="error-email" *ngIf="loginForm.get('email')?.errors?.['required']">Введите
+                        e-mail</mat-error>
+                    <mat-error class="error-email" *ngIf="loginForm.get('email')?.errors?.['email']">E-mail должен иметь
+                        формат example@gmail.com</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [type]="passwordIsShown ? 'text' : 'password'" formControlName="password"
+                        placeholder="Пароль" id="password">
+                    <mat-icon matSuffix class="passwordIcon" (click)="togglePasswordVisibility()"
+                        *ngIf="loginForm.get('password')?.value">{{passwordIsShown ?
+                        'visibility' : 'visibility_off'}}</mat-icon>
+                    <mat-error class="error-password" *ngIf="loginForm.get('password')?.errors?.['required']">Введите
+                        пароль</mat-error>
+                </mat-form-field>
+                <div class="form-field field-checkbox">
+                    <mat-checkbox type="checkbox" formControlName="rememberMe" id="rememberMe">Запомнить
+                        меня</mat-checkbox>
+                </div>
+                <div class="form-submit">
+                    <button class="button" [disabled]="loginForm.invalid" (click)="login()" id="button">Войти</button>
+                </div>
+                <div class="form-link">
+                    <span>Нет аккаунта?</span>
+                    <a href="signup">Пройдите регистрацию</a>
+                </div>
+            </div>
+        </form>
+        <div class="login-image">
+            <img src="/assets/images/auth/login.png" alt="auth">
+        </div>
+    </div>
+</section>

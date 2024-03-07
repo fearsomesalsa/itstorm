@@ -1,0 +1,15 @@
+@import "variables";
+
+@mixin menu-flex-list-none-p0-m0 {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin subtitle-lora-38-lightblue {
+  color: $light-blue-text-color ;
+  font-family: 'Lora', serif;
+  font-size: 38px;
+  font-weight: 400;
+}

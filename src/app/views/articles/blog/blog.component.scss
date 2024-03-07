@@ -1,0 +1,165 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.blog {
+    padding: 80px 0 120px;
+
+    .container {
+        .blog-title {
+            margin-bottom: 32px; /* по макету 40px, я отмеряла от .blog-filters-select-head в открытом состоянии */
+        }
+
+        .blog-filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            font-size: 16px;
+
+            .blog-applied-filters {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                
+                .blog-applied-filter {
+                    padding: 8px 20px;
+                    border-radius: 5px;
+                    border: 2px solid $light-blue-text-color;
+                    color: $light-blue-text-color;
+                    display: flex;
+                    align-items: center;
+                    margin-right: 20px;
+
+                    span {
+                        margin-right: 8px;
+                    }
+
+                    svg {
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .blog-filters-select {
+                position: relative;
+                width: 148px;
+                transition: .3s;
+
+                .blog-filters-select-head {
+                    color: $dark-blue-text-color;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                    padding: 12px 23px;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+
+                    span {
+                        margin-right: 8px;
+                    }
+
+                    svg {
+                        transition: .3s;
+                    }
+                }
+
+                .blog-filters-select-body {
+                    position: absolute;
+                    width: 100%;
+                    z-index: 3;
+                    display: none;
+                    background-color: #fff;
+                    border-radius: 0 0 5px 5px;
+                    border: 2px solid $light-blue-background-color;
+
+                    .blog-filters-select-category {
+                        color: #BEBEBE;
+                        font-size: 16px;
+                        padding: 12px 23px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        cursor: pointer;
+
+                        &.applied, &:hover {
+                            color: $dark-blue-text-color;
+                            opacity: 1;
+                        }
+
+                        &:first-child {
+                            padding-top: 17px;
+                        }
+
+                        &:last-child {
+                            padding-bottom: 17px;
+                        }
+                        
+                        .blog-filters-select-category-add-filter, .blog-filters-select-category-remove-filter {
+                            font-size: 24px;
+                        }
+                    }
+                }
+
+                &.open {
+                    width: 257px;
+
+                    .blog-filters-select-head {
+                        border-radius: 5px 5px 0 0;
+                        background-color: $light-blue-background-color;
+
+                        svg {
+                            rotate: 180deg;
+                        }
+                    }
+
+                    .blog-filters-select-body {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+
+        .blog-articles {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px 24px;
+            margin-bottom: 60px;
+        }
+
+        .blog-pagination {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+
+            .blog-pagination-pages {
+                margin: 0 40px;
+
+                .pagination-page {
+                    font-size: 20px;
+                    padding: 0 10px;
+                    margin-right: 20px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+
+                    &.active {
+                        color: $light-blue-background-color;
+                    }
+
+                    &.pagination-page-prev {
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+

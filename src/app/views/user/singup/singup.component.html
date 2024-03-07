@@ -1,0 +1,60 @@
+<section class="signup">
+    <div class="container">
+        <form class="form" [formGroup]="signUpForm">
+            <h3 class="form-title">Регистрация на сайте</h3>
+            <div class="form-fields">
+                <mat-form-field class="form-field field-name">
+                    <input matInput type="text" formControlName="name" placeholder="Ваше имя" id="name">
+                    <mat-error class="error-name" *ngIf="signUpForm.get('name')?.errors?.['required']">Введите
+                        имя</mat-error>
+                    <mat-error class="error-name" *ngIf="signUpForm.get('name')?.errors?.['pattern']">Имя может
+                        содержать русские буквы
+                        и пробелы. Каждое слово с большой буквы</mat-error>
+                </mat-form-field>
+                <mat-form-field class="form-field field-email">
+                    <input matInput type="email" formControlName="email" placeholder="Электронная почта" id="email">
+                    <mat-error class="error-email" *ngIf="signUpForm.get('email')?.errors?.['required']">Введите
+                        e-mail</mat-error>
+                    <mat-error class="error-email" *ngIf="signUpForm.get('email')?.errors?.['email']">E-mail должен
+                        иметь формат
+                        example@gmail.com</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput [type]="passwordIsShown ? 'text' : 'password'" formControlName="password"
+                        placeholder="Пароль" id="password">
+                    <mat-icon matSuffix (click)="togglePasswordVisibility()"
+                        *ngIf="signUpForm.get('password')?.value">{{passwordIsShown ? 'visibility' :
+                        'visibility_off'}}</mat-icon>
+                    <mat-error class="error-password" *ngIf="signUpForm.get('password')?.errors?.['required']">Введите
+                        пароль</mat-error>
+                    <mat-error class="error-password" *ngIf="signUpForm.get('password')?.errors?.['pattern']">Пароль
+                        должен быть не менее 8
+                        символов, содержать как минимум 1 букву в верхнем регистре и как минимум 1 цифру
+                    </mat-error>
+                </mat-form-field>
+                <div class="form-field field-checkbox">
+                    <mat-checkbox type="checkbox" formControlName="agreement" id="agreement">
+                        Я принимаю <a routerLink="/policy" fragment="termsOfUse" target="_blank">условия
+                            пользовательского соглашения</a> и даю <a routerLink="/policy"
+                            fragment="personalDataProcessing" target="_blank">согласие на обработку персональных
+                            данных</a>.
+                    </mat-checkbox>
+                    <mat-error class="error-agreement" *ngIf="signUpForm.get('agreement')?.invalid">Необходимо
+                        подтвердить принятие условий пользовательского соглашения и согласие на обработку
+                        персональных данных</mat-error>
+                </div>
+                <div class="form-submit">
+                    <button class="button" [disabled]="!signUpForm.valid" (click)="signUp()"
+                        id="button">Зарегистрироваться</button>
+                </div>
+                <div class="form-link">
+                    <span>Уже есть аккаунт?</span>
+                    <a routerLink="/login">Войдите</a>
+                </div>
+            </div>
+        </form>
+        <div class="signup-image">
+            <img src="/assets/images/auth/signup.png" alt="auth">
+        </div>
+    </div>
+</section>
