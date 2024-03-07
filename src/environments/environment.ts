@@ -1,4 +1,4 @@
 export const environment = {
-  api: 'http://localhost:3000/api/',
-  serverStaticPath: 'http://localhost:3000/images/',
+  api: 'https://fearsomesalsa-app.ru/api/',
+  serverStaticPath: 'https://fearsomesalsa-app.ru/images/',
 };
